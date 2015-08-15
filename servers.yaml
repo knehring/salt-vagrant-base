@@ -1,0 +1,23 @@
+---
+- name: salt-master
+  hostname: salt-master
+  box: ubuntu/trusty64
+  ram: 1024
+  ip: 10.1.15.11
+  bootstrap: master_bootstrap.sh
+  sync-local: ./
+  sync-remote: /srv/salt
+  master_config: ./salt/configs/master
+  master_key: ./salt/keys/master.pem
+  master_pub: ./salt/keys/master.pub
+- name: salt-minion
+  hostname: salt-minion
+  box: ubuntu/trusty64
+  ram: 1024
+  ip: 10.1.15.12
+  bootstrap: minion_bootstrap.sh
+  minion_config: ./salt/configs/minion
+  minion_key: ./salt/keys/minion.pem
+  minion_pub: ./salt/keys/minion.pub
+  sync-local: ./
+  sync-remote: /srv/salt
