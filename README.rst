@@ -14,7 +14,7 @@ already be installed.
 .. code-block:: bash
 
     git clone https://github.com/knehring/salt-vagrant-test.git
-    cd salt-vagrant-demo
+    cd salt-vagrant-test
     vagrant up
 
 
