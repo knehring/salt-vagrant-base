@@ -8,8 +8,8 @@
   sync-local: ./
   sync-remote: /srv/salt
   master_config: ./salt/configs/master
-  master_key: ./salt/keys/master.pem
-  master_pub: ./salt/keys/master.pub
+  master_key: ./salt/keys/salt-master.pem
+  master_pub: ./salt/keys/salt-master.pub
 - name: salt-minion
   hostname: salt-minion
   box: ubuntu/trusty64
@@ -17,7 +17,8 @@
   ip: 10.1.15.12
   bootstrap: minion_bootstrap.sh
   minion_config: ./salt/configs/minion
-  minion_key: ./salt/keys/minion.pem
-  minion_pub: ./salt/keys/minion.pub
+  minion_id: "salt-minion"
+  minion_key: ./salt/keys/salt-minion.pem
+  minion_pub: ./salt/keys/salt-minion.pub
   sync-local: ./
   sync-remote: /srv/salt

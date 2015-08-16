@@ -29,12 +29,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
       unless servers["master_config"].nil?
         srv.vm.provision :salt do |salt|
-          #salt.master_config = servers["master_config"]
           salt.master_key = servers["master_key"] unless servers["master_key"].nil?
           salt.master_pub = servers["master_pub"] unless servers["master_pub"].nil?
-          salt.seed_master = {
-                              "salt-minion" => "./salt/keys/minion.pub"
-                             }
+          #salt.seed_master = {
+                              #"salt-minion" => "./salt/keys/salt-minion.pub"
+                             #}
           salt.install_type = "stable"
           salt.install_master = true 
           salt.no_minion = true
@@ -45,12 +44,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       
       unless servers["minion_config"].nil?
         srv.vm.provision :salt do |salt|
-          salt.minion_key = servers["minion_key"] unless servers["minion_key"].nil?
-          salt.minion_pub = servers["minion_pub"] unless servers["minion_pub"].nil?
+          salt.minion_id = servers["name"]
           salt.install_type = "stable"
           salt.verbose = true
           salt.bootstrap_options = "-P"
-          #salt.run_highstate = true
         end
       end
 
