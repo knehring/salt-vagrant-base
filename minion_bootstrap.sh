@@ -15,6 +15,5 @@ sudo cp /vagrant/salt/keys/salt-minion.pem /etc/salt/pki/minion/minion.pem
 sudo cp /vagrant/salt/keys/salt-minion.pub /etc/salt/pki/minion/minion.pub
 
 echo "Restarting salt-minion"
-sudo salt-minion -d
 sudo service salt-minion restart
-#sudo salt-call state.highstate
+sudo salt-call state.highstate

@@ -15,5 +15,4 @@ echo "Pre-seeding minions"
 sudo cp /vagrant/salt/keys/salt-minion.pub /etc/salt/pki/master/minions/salt-minion
 
 echo "Restarting salt-master"
-sudo salt-master -d
 sudo service salt-master restart
